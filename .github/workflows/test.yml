@@ -1,5 +1,5 @@
 name: Deploy project
-on: 
+on:
   pull_request:
     types: [opened]
   workflow_dispatch:
