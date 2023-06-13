@@ -19,8 +19,6 @@ jobs:
     name: Deploy project to aws
     runs-on: ubuntu-latest
     steps:
-      - name: Output event Data
-        run: echo "${{toJSON(github.event)}}"
       - name: Get code
         uses: actions/checkout@v3
       - name: Install dependencies
