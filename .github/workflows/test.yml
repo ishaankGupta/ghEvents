@@ -1,5 +1,8 @@
 name: Deploy project
-on: ...
+on: 
+  pull_request:
+    types: [opened]
+  workflow_dispatch:
 jobs:
   job1:
     name: Deploy project to aws
