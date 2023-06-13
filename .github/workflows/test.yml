@@ -1,0 +1,19 @@
+name: Deploy project
+on: ...
+jobs:
+  job1:
+    name: Deploy project to aws
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output event Data
+        run: echo "${{toJSON(github.event)}}"
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Test
+        run: npm run test
+      - name: Run build
+        run: npm run build
+      - name: Deploy project
+        run: echo "Deploying"
