@@ -8,6 +8,7 @@ describe('MainContent', () => {
   it('should render a button', () => {
     render(<MainContent />);
 
+    //Add a comment
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
