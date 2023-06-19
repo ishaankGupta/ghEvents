@@ -49,6 +49,6 @@ jobs:
       - name: Output content
         run: |
           echo "${{ needs.build.outputs.script-file }}"
-          echo "${{ needs.build.outputs }}"
+          echo "${{ toJSON(needs.build.outputs) }}"
       - name: Deploy
         run: echo "Deploying..."
