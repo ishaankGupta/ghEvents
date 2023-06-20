@@ -14,7 +14,7 @@ jobs:
       - name: Get Artifacts
         uses: actions/download-artifact@v3
         with:
-          path: ${{inputs.artifacts-name}}
+          name: ${{inputs.artifacts-name}}
       - name: List files
         run: ls
       - name: Output information
