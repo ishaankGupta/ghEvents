@@ -1,0 +1,25 @@
+name: Matrix Deployment
+on: push
+jobs:
+  job1:
+    strategy: 
+      matrix:
+        node-version: [12,14,16]
+        operating-system: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.operating-system }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Caching dependency
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: deps-node_modules_${{hashFiles('**/package_lock.json')}}
+      - name: Install Dependency
+        run: npm ci
+      - name: Run Test
+        run: npm run build 
